@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <style>dd{word-wrap: break-word;}</style>
+  <title>Cookie Less Monster: Fingerprinting code</title>
+</head>
+<body>
+  <div class="container">
+    <header role="banner">
+      <h1 class="page-header">Cookie Less Monster: Fingerprinting code</h1>
+    </header>
+    <main id="main" role="main">
+      <section>
+        <h2 class="page-header">step1<br><small>Enumerated the navigator and screen object, i.e., request the listing of all properties of the aforementioned objects.</small></h2>
+        <dl id="step1"></dl>
+      </section>
+      <section>
+        <h2 class="page-header">step2<br><small>Enumerated the navigator object again, to ensure that the order of enumeration does not change.</small></h2>
+        <dl id="step2"></dl>
+      </section>
+      <section>
+        <h2 class="page-header">step3<br><small>Created a custom object, populated it, and enumerated it. A custom, JavaScript-created object, allows us to compare the behavior of browser-populated objects (such as navigator) with the behavior of “classic”JavaScript objects.</small></h2>
+        <dl id="step3"></dl>
+      </section>
+      <section>
+        <h2 class="page-header">step4<br><small>Attempted to delete a property of the navigator object, the screen object, and the custom object.</small></h2>
+        <dl id="step4"></dl>
+      </section>
+      <section>
+        <h2 class="page-header">step5<br><small>Add the possibly-deleted properties back to their objects.</small></h2>
+        <dl id="step5"></dl>
+      </section>
+      <section>
+        <h2 class="page-header">step6<br><small>Attempted to modify an existing property of the navigator and screen objects.</small></h2>
+        <dl id="step6"></dl>
+      </section>
+      <section>
+        <h2 class="page-header">step7<br><small>If Object.defineProperty is implemented in the current browser, utilize it to make an existing property in the navigator, screen, and custom object non-enumerable.</small></h2>
+        <dl id="step7"></dl>
+      </section>
+      <section>
+        <h2 class="page-header">step8<br><small>Attempt to delete the navigator and screen objects.</small></h2>
+        <dl id="step8"></dl>
+      </section>
+      <section>
+        <h2 class="page-header">step9<br><small>Attempt to assign new custom objects to the navigator and screen variable names.</small></h2>
+        <dl id="step9"></dl>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
