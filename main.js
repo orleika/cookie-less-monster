@@ -1,10 +1,10 @@
-(function($, window, undefined) {
+(function(_, $, window) {
   /**
    * Get list of all properties of the object.
    * for-in is listing of all enumerable properties.
-   * @method getObjectProperty
-   * @param object {Object}
-   * @return {Object}
+   *
+   * @param {Object} object
+   * @returns {Object}
    */
   var getObjectProperty = function(object) {
     var property,
@@ -16,9 +16,9 @@
 
   /**
    * Get list of all properties name of the object.
-   * @method getObjectProperty
-   * @param object {Object}
-   * @return {Array}
+   *
+   * @param {Object} object
+   * @returns {Array}
    */
   var getObjectPropertyNamesToArray = function(object) {
     var property,
@@ -73,9 +73,9 @@
    * 4. Attempted to delete a property of the navigator
    * object, the screen object, and the custom object.
    */
-  var navigatorTmp = $.extend(true, {}, window.navigator),
-    screenTmp = $.extend(true, {}, window.screen),
-    customObjectTmp = $.extend(true, {}, customObject);
+  var navigatorTmp = _.cloneDeep(window.navigator),
+    screenTmp = _.cloneDeep(window.screen),
+    customObjectTmp = _.cloneDeep(customObject);
   data.push({
     'navigator_delete': delete window.navigator[navigatorPropNames[0]],
     'screen_delete': delete window.screen[screenPropNames[0]],
@@ -170,12 +170,12 @@
 
   // console.log(data);
   var $dd;
-  $.each(data, function(idx, obj) {
-    $.each(obj, function(key, val) {
+  _.each(data, function(obj, idx) {
+    _.each(obj, function(val, key) {
       $('#step' + (idx + 1)).append($.parseHTML('<dt>' + key + '</dt>' + '<dd id="step' + (idx + 1) + key + '"></dd>'));
       $dd = $('#step' + (idx + 1) + key);
       if (typeof val === 'object') {
-        $.each(val, function(property, value) {
+        _.each(val, function(value, property) {
           $dd.append(property + ': ' + value + '<br>');
         });
       } else {
@@ -183,4 +183,4 @@
       }
     });
   });
-}(jQuery, window));
+}(_, jQuery, window));
